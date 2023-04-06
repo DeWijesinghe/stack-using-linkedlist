@@ -24,10 +24,10 @@ class Stack{
             currentSize=0;
         }
         bool isEmpty(){
-            if(stackTop=NULL){
-                return false;
+            if(stackTop==NULL){
+                return true;
             }
-            return true;
+            return false;
         }
 
         bool isFull(){
@@ -48,7 +48,7 @@ class Stack{
                 cout <<"Stack is underflow.";
                 return -1 ;
             }
-            Node* curr =stackTop;
+            Node* curr = stackTop;
             int topValue=curr->key;
             stackTop = stackTop->next;
             delete curr;
@@ -71,16 +71,47 @@ class Stack{
             }
             Node* curr =stackTop;
             while(curr != NULL){
-                cout<<curr->key;
+                cout<<curr->key<<" ";
                 curr=curr->next;
             }
+            cout<<endl;
 
         }
 
 };
+
 int main(){
-    
+    clock_t start,end;
+    start=clock();
+    Stack mystack(10);
+    mystack.push(8);
+    mystack.push(10);
+    mystack.push(5);
+    mystack.push(15);
+    mystack.push(23);
+    mystack.push(6);
+    mystack.push(18);
+    mystack.push(20);
+    mystack.push(17);
+    mystack.displayStack();
+    mystack.pop();
+    mystack.pop();
+    mystack.pop();
+    mystack.pop();
+    mystack.pop();
+    mystack.displayStack();
+    mystack.push(4);
+    mystack.push(30);
+    mystack.push(3);
+    mystack.push(1);
+    mystack.displayStack();
+    end=clock();
+    double total_t = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Total time taken by CPU: %f\n", total_t  );
+
+    return 0;
 }
+
 
 
 
