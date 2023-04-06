@@ -26,7 +26,7 @@ class Stack{
         bool isEmpty(){
             if(stackTop==NULL){
                 return true;
-            }
+            } 
             return false;
         }
 
